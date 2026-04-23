@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Irani Chai">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0f14"/>
+      <stop offset="1" stop-color="#172131"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="25%" r="70%">
+      <stop offset="0" stop-color="#f39c12" stop-opacity="0.35"/>
+      <stop offset="0.5" stop-color="#d4521f" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#0b0f14" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="steam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cup" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6f1e6"/>
+      <stop offset="1" stop-color="#d9d3c6"/>
+    </linearGradient>
+    <linearGradient id="chai" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e7b86b"/>
+      <stop offset="1" stop-color="#a56a2a"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect width="1200" height="800" fill="url(#glow)"/>
+
+  <g opacity="0.9">
+    <circle cx="1020" cy="120" r="140" fill="#d4521f" opacity="0.10"/>
+    <circle cx="1080" cy="210" r="85" fill="#f39c12" opacity="0.12"/>
+    <circle cx="120" cy="680" r="220" fill="#f39c12" opacity="0.10"/>
+    <circle cx="240" cy="740" r="120" fill="#d4521f" opacity="0.10"/>
+  </g>
+
+  <g filter="url(#shadow)" transform="translate(0 0)">
+    <path d="M260 620c0-70 58-128 128-128h424c70 0 128 58 128 128v12c0 48-39 88-88 88H348c-49 0-88-40-88-88v-12z"
+          fill="#0f1520" opacity="0.85"/>
+  </g>
+
+  <g transform="translate(0 0)">
+    <path d="M520 210c-28 40-18 78 16 112 34 34 44 72 16 112"
+          fill="none" stroke="url(#steam)" stroke-width="18" stroke-linecap="round"/>
+    <path d="M610 190c-34 48-22 92 18 132 40 40 52 84 18 132"
+          fill="none" stroke="url(#steam)" stroke-width="20" stroke-linecap="round" opacity="0.9"/>
+    <path d="M705 210c-28 40-18 78 16 112 34 34 44 72 16 112"
+          fill="none" stroke="url(#steam)" stroke-width="18" stroke-linecap="round" opacity="0.85"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <path d="M380 300h440v210c0 70-56 126-126 126H506c-70 0-126-56-126-126V300z"
+          fill="url(#cup)"/>
+    <path d="M405 338h390v150c0 50-40 90-90 90H495c-50 0-90-40-90-90V338z"
+          fill="url(#chai)" opacity="0.95"/>
+    <path d="M820 340h46c60 0 108 48 108 108s-48 108-108 108h-54"
+          fill="none" stroke="#f6f1e6" stroke-width="28" stroke-linecap="round"/>
+    <path d="M820 352h46c54 0 96 42 96 96s-42 96-96 96h-42"
+          fill="none" stroke="#d9d3c6" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
+    <path d="M448 646h304" fill="none" stroke="#d9d3c6" stroke-width="22" stroke-linecap="round"/>
+  </g>
+
+  <g opacity="0.95">
+    <text x="600" y="120" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="54" fill="#ecf0f1" font-weight="800">
+      Irani Chai
+    </text>
+    <text x="600" y="165" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#b3c0d1" font-weight="600">
+      Hot, creamy, and brewed the Hyderabadi way
+    </text>
+  </g>
+</svg>
