@@ -140,14 +140,22 @@
                 <button type="button" class="filter-btn" data-filter="combos" role="tab" aria-selected="false" tabindex="-1" aria-controls="menuGrid"><span>Combos</span></button>
                 <button type="button" class="filter-btn" data-filter="snacks" role="tab" aria-selected="false" tabindex="-1" aria-controls="menuGrid"><span>Snacks</span></button>
                 <button type="button" class="filter-btn" data-filter="drinks" role="tab" aria-selected="false" tabindex="-1" aria-controls="menuGrid"><span>Drinks</span></button>
+
+                <div class="menu-search-dock" id="menuSearchDock" role="search">
+                    <button type="button" class="menu-search-toggle" aria-label="Open search" aria-controls="menuSearch">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </button>
+                    <input type="search" id="menuSearch" class="menu-search-input" placeholder="Search..." autocomplete="off" spellcheck="false" aria-label="Search menu items">
+                    <button type="button" class="menu-search-clear" aria-label="Clear search" aria-controls="menuSearch">
+                        <i class="fas fa-times" aria-hidden="true"></i>
+                    </button>
+                    <span class="menu-search-count" id="menuSearchCount" aria-live="polite"></span>
+                </div>
             </div>
+
+            <p id="menuSearchEmpty" class="menu-search-empty">No matching items found.</p>
 
             <div class="menu-grid" id="menuGrid"></div>
-
-            <div class="menu-search-wrap">
-                <input type="search" id="menuSearch" class="menu-search-input" placeholder="Search menu items..." aria-label="Search menu items">
-            </div>
-            <p id="menuSearchEmpty" class="menu-search-empty">No matching items found.</p>
 
             <div class="full-list-toggle-wrap">
                 <button type="button" class="full-list-toggle-btn" id="fullListToggleBtn" aria-expanded="false" aria-controls="fullMenuList">

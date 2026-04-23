@@ -4,7 +4,10 @@ const navMenu = document.getElementById('navMenu');
 const themeToggle = document.getElementById('themeToggle');
 
 const urlParams = new URLSearchParams(window.location.search);
-const isMenuOnlyView = urlParams.get('menu') === '1';
+const isMenuOnlyView =
+    urlParams.get('view') === 'menu' ||
+    urlParams.get('menu') === '1' ||
+    urlParams.get('menu') === 'true';
 if (isMenuOnlyView) {
     document.body.classList.add('menu-only');
 
@@ -14,6 +17,16 @@ if (isMenuOnlyView) {
         if (!href.startsWith('#')) return;
         link.setAttribute('href', `index.html${href}`);
     });
+
+    // Auto-jump to menu (account for fixed header)
+    const menuSection = document.getElementById('menu');
+    if (menuSection) {
+        setTimeout(() => {
+            const headerOffset = 70;
+            const top = menuSection.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+            window.scrollTo({ top, behavior: 'auto' });
+        }, 0);
+    }
 }
 
 function applyTheme(theme) {
@@ -724,12 +737,18 @@ function updateMenuCards({ animate = true } = {}) {
     const query = (menuSearchInput?.value || '').trim().toLowerCase();
     const filter = getActiveFilterKey();
     const shouldAnimate = animate && query === '';
+    let visibleCount = 0;
 
     document.querySelectorAll('#menuGrid .menu-item').forEach(card => {
-        const matchesText = query === '' || card.textContent.toLowerCase().includes(query);
+        const haystack = card.dataset.searchText || (card.dataset.searchText = card.textContent.toLowerCase());
+        const matchesText = query === '' || haystack.includes(query);
         const matchesFilter = filter === 'all' || card.dataset.category === filter;
-        setCardVisibility(card, matchesText && matchesFilter, shouldAnimate);
+        const shouldShow = matchesText && matchesFilter;
+        if (shouldShow) visibleCount += 1;
+        setCardVisibility(card, shouldShow, shouldAnimate);
     });
+
+    return { visibleCount, query, filter };
 }
 
 renderMenuCardsFromStructuredList();
@@ -739,6 +758,47 @@ const fullMenuList = document.getElementById('fullMenuList');
 const fullListToggleBtn = document.getElementById('fullListToggleBtn');
 const menuSearchInput = document.getElementById('menuSearch');
 const menuSearchEmpty = document.getElementById('menuSearchEmpty');
+const menuSearchDock = document.getElementById('menuSearchDock');
+const menuSearchToggle = menuSearchDock?.querySelector('.menu-search-toggle');
+const menuSearchClear = menuSearchDock?.querySelector('.menu-search-clear');
+const menuSearchCount = document.getElementById('menuSearchCount');
+const menuQueryParam = (new URLSearchParams(window.location.search)).get('q') || '';
+
+function debounce(fn, delay = 70) {
+    let timeoutId = null;
+    return (...args) => {
+        if (timeoutId) clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => fn(...args), delay);
+    };
+}
+
+function setSearchDockOpen(open) {
+    if (!menuSearchDock) return;
+    const shouldOpen = !!open;
+    const wasOpen = menuSearchDock.classList.contains('is-open');
+    menuSearchDock.classList.toggle('is-open', shouldOpen);
+
+    if (shouldOpen && !wasOpen) {
+        menuSearchDock.classList.add('just-opened');
+        setTimeout(() => menuSearchDock.classList.remove('just-opened'), 360);
+    }
+}
+
+function syncSearchDockValueState() {
+    if (!menuSearchDock || !menuSearchInput) return;
+    const hasValue = menuSearchInput.value.trim() !== '';
+    menuSearchDock.classList.toggle('has-value', hasValue);
+    if (hasValue) setSearchDockOpen(true);
+}
+
+function setSearchCount(count, query) {
+    if (!menuSearchCount) return;
+    if (!query) {
+        menuSearchCount.textContent = '';
+        return;
+    }
+    menuSearchCount.textContent = String(count);
+}
 
 function setFullListExpanded(expanded) {
     if (!fullMenuList || !fullListToggleBtn) return;
@@ -753,6 +813,68 @@ if (fullMenuList && fullListToggleBtn) {
     fullListToggleBtn.addEventListener('click', () => {
         const currentlyExpanded = fullListToggleBtn.getAttribute('aria-expanded') === 'true';
         setFullListExpanded(!currentlyExpanded);
+    });
+}
+
+if (menuSearchInput) {
+    syncSearchDockValueState();
+
+    if (menuQueryParam) {
+        menuSearchInput.value = menuQueryParam;
+        syncSearchDockValueState();
+        setSearchDockOpen(true);
+        setTimeout(() => menuSearchInput.dispatchEvent(new Event('input')), 0);
+    }
+
+    // In QR menu-only mode, focus search for fast lookup.
+    if (document.body.classList.contains('menu-only')) {
+        setSearchDockOpen(true);
+        setTimeout(() => menuSearchInput.focus(), 50);
+    }
+
+    menuSearchToggle?.addEventListener('click', () => {
+        setSearchDockOpen(true);
+        menuSearchInput.focus();
+    });
+
+    // Make the whole pill feel like one control (cleaner "shape flow").
+    menuSearchDock?.addEventListener('click', (e) => {
+        if (!menuSearchDock || !menuSearchInput) return;
+        const target = e.target;
+        if (target instanceof Element) {
+            if (target.closest('.menu-search-clear')) return;
+            if (target.closest('input')) return;
+        }
+        setSearchDockOpen(true);
+        menuSearchInput.focus();
+    });
+
+    menuSearchClear?.addEventListener('click', () => {
+        menuSearchInput.value = '';
+        syncSearchDockValueState();
+        menuSearchInput.dispatchEvent(new Event('input'));
+        menuSearchInput.focus();
+    });
+
+    menuSearchInput.addEventListener('focus', () => setSearchDockOpen(true));
+    menuSearchInput.addEventListener('blur', () => {
+        // Delay so clicking clear/toggle doesn't instantly close the dock.
+        setTimeout(() => {
+            if (!menuSearchDock || !menuSearchInput) return;
+            if (menuSearchDock.contains(document.activeElement)) return;
+            if (menuSearchInput.value.trim() !== '') return;
+            setSearchDockOpen(false);
+        }, 120);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (!menuSearchInput) return;
+        if (e.key !== '/') return;
+        const tag = document.activeElement?.tagName?.toLowerCase() || '';
+        if (tag === 'input' || tag === 'textarea') return;
+        e.preventDefault();
+        setSearchDockOpen(true);
+        menuSearchInput.focus();
     });
 }
 
@@ -903,12 +1025,13 @@ if (menuSearchInput) {
     const fullMenuList = document.getElementById('fullMenuList');
     const menuGroups = fullMenuList ? fullMenuList.querySelectorAll('.menu-group') : [];
 
-    menuSearchInput.addEventListener('input', () => {
+    const applyMenuSearch = () => {
         const query = menuSearchInput.value.trim().toLowerCase();
+        syncSearchDockValueState();
+
         if (query !== '') {
             setFullListExpanded(true);
         }
-        let anyVisible = false;
 
         menuGroups.forEach(group => {
             let groupHasMatch = false;
@@ -941,17 +1064,24 @@ if (menuSearchInput) {
                 group.open = true;
             }
 
-            if (query === '' || groupHasMatch) {
-                anyVisible = true;
-            }
+            // No additional handling needed here; the full list items are already shown/hidden above.
         });
 
+        const result = updateMenuCards({ animate: false });
+        setSearchCount(result?.visibleCount ?? 0, query);
+
+        // Show "no results" based on the visible cards (includes active category filter).
         if (menuSearchEmpty) {
-            menuSearchEmpty.style.display = anyVisible ? 'none' : 'block';
+            const shouldShowEmpty = query !== '' && (result?.visibleCount ?? 0) === 0;
+            menuSearchEmpty.style.display = shouldShowEmpty ? 'block' : 'none';
         }
 
-        updateMenuCards({ animate: false });
-    });
+    };
+
+    const debouncedApplyMenuSearch = debounce(applyMenuSearch, 60);
+
+    menuSearchInput.addEventListener('input', debouncedApplyMenuSearch);
+    applyMenuSearch();
 }
 
 // Parallax Effect for Hero

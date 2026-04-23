@@ -1,13 +1,26 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting to Menu...</title>
-    <meta http-equiv="refresh" content="0; url=index.html?menu=1#menu">
+    <title>Menu - Hyderabadi Irani Food Court</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="canonical" href="index.html?menu=1#menu">
 </head>
 <body>
-    <p>Redirecting to the menu section on the home page. <a href="index.html#menu">Click here if you are not redirected.</a></p>
+    <main class="qr-menu-landing">
+        <div class="qr-card">
+            <h1>Hyderabadi Irani Food Court</h1>
+            <p class="qr-subtitle">Scan and search the menu</p>
+
+            <form class="qr-form" action="index.html" method="get">
+                <input type="hidden" name="menu" value="1">
+                <input type="search" name="q" class="menu-search-input" placeholder="Search dishes (e.g., biryani, lassi, momos)" aria-label="Search menu">
+                <button type="submit" class="full-list-toggle-btn">Open Menu</button>
+            </form>
+
+            <a class="qr-skip" href="index.html?menu=1#menu">Skip search and view menu</a>
+        </div>
+    </main>
 </body>
 </html>
