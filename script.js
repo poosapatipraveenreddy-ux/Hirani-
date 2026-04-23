@@ -981,44 +981,5 @@ document.querySelectorAll('.social-btn').forEach(btn => {
     });
 });
 
-// Contact form -> WhatsApp deep link (static-site friendly)
-const contactForm = document.getElementById('contactForm');
-const contactFormStatus = document.getElementById('contactFormStatus');
-
-function normalizePhoneDigits(value) {
-    return String(value || '').replace(/\D/g, '');
-}
-
-function buildWhatsAppUrl(phoneDigits, message) {
-    const base = 'https://wa.me/';
-    const number = phoneDigits.startsWith('91') ? phoneDigits : `91${phoneDigits}`;
-    return `${base}${number}?text=${encodeURIComponent(message)}`;
-}
-
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const name = document.getElementById('contactName')?.value?.trim() || '';
-        const phone = normalizePhoneDigits(document.getElementById('contactPhone')?.value);
-        const message = document.getElementById('contactMessage')?.value?.trim() || '';
-
-        if (!name || !phone || !message) {
-            if (contactFormStatus) contactFormStatus.textContent = 'Please fill in all fields.';
-            return;
-        }
-
-        const businessPhone = '8985673240';
-        const composed = `Name: ${name}\nPhone: ${phone}\n\nMessage:\n${message}`;
-        const url = buildWhatsAppUrl(businessPhone, composed);
-
-        if (contactFormStatus) contactFormStatus.textContent = 'Opening WhatsApp...';
-        const opened = window.open(url, '_blank', 'noopener,noreferrer');
-        if (!opened && contactFormStatus) {
-            contactFormStatus.textContent = 'Popup blocked. Please allow popups and try again.';
-        }
-    });
-}
-
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = String(new Date().getFullYear());
