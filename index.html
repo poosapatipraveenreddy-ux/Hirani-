@@ -1,0 +1,670 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyderabadi Irani Food Court | Authentic Irani Chai & Snacks</title>
+    <meta name="description" content="Authentic Irani chai and Hyderabadi cuisine in Rampally, Hyderabad. Family-friendly seating, quick service, and a complete menu of soups, fried rice, noodles, biryanis, snacks, and drinks.">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0b0f14" media="(prefers-color-scheme: dark)">
+    <meta property="og:title" content="Hyderabadi Irani Food Court">
+    <meta property="og:description" content="Authentic Irani chai and Hyderabadi cuisine in Rampally, Hyderabad.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <i class="fas fa-utensils"></i>
+                    <h2>Hyderabadi Irani Food Court</h2>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#menu" class="nav-link">Menu</a></li>
+                    <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <a class="btn-order" href="tel:08985673240" aria-label="Call to order online">Order Online</a>
+                <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="fade-in">Welcome to Hyderabadi Irani Food Court</h1>
+            <p class="fade-in-delay">Authentic Irani Chai & Delicious Hyderabadi Cuisine</p>
+            <div class="hero-stats fade-in-delay-2">
+                <div class="stat">
+                    <i class="fas fa-star"></i>
+                    <span>4.0 Rating</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-users"></i>
+                    <span>161 Reviews</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-rupee-sign"></i>
+                    <span>₹1-200</span>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-primary">View Menu</a>
+                <a href="#contact" class="btn btn-secondary">Visit Us</a>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Us</h2>
+                <div class="divider"></div>
+                <p>Experience the authentic taste of Irani cuisine</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Your Favorite Tea Point</h3>
+                    <p>Welcome to Hyderabadi Irani Food Court, where tradition meets taste. We serve authentic Irani chai and delicious Hyderabadi delicacies in a spacious and family-friendly environment.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Ample Parking Space</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Separate Garden Area for Families</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Quick Service</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Spacious Seating</span>
+                        </div>
+                    </div>
+                    <div class="timing">
+                        <i class="fas fa-clock"></i>
+                        <span><strong>Open Now</strong> · Closes 11:30 PM</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1559305616-3a7676d376ce?w=600" alt="Irani Chai" loading="lazy" decoding="async">
+                    <div class="image-overlay">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2>Complete Menu</h2>
+                <div class="divider"></div>
+                <p>Freshly made, quick-serve favorites</p>
+            </div>
+            <div class="menu-catalog">
+            <div class="menu-filter" role="tablist" aria-label="Menu categories">
+                <button type="button" class="filter-btn active" data-filter="all" role="tab" aria-selected="true" tabindex="0" aria-controls="menuGrid"><span>All</span></button>
+                <button type="button" class="filter-btn" data-filter="soups" role="tab" aria-selected="false" tabindex="-1" aria-controls="menuGrid"><span>Soups</span></button>
+                <button type="button" class="filter-btn" data-filter="fried-rice" role="tab" aria-selected="false" tabindex="-1" aria-controls="menuGrid"><span>Fried Rice</span></button>
+                <button type="button" class="filter-btn" data-filter="noodles" role="tab" aria-selected="false" tabindex="-1" aria-controls="menuGrid"><span>Noodles</span></button>
+                <button type="button" class="filter-btn" data-filter="seafood" role="tab" aria-selected="false" tabindex="-1" aria-controls="menuGrid"><span>Seafood</span></button>
+                <button type="button" class="filter-btn" data-filter="biryani" role="tab" aria-selected="false" tabindex="-1" aria-controls="menuGrid"><span>Biryani</span></button>
+                <button type="button" class="filter-btn" data-filter="rotis" role="tab" aria-selected="false" tabindex="-1" aria-controls="menuGrid"><span>Rotis</span></button>
+                <button type="button" class="filter-btn" data-filter="bagara" role="tab" aria-selected="false" tabindex="-1" aria-controls="menuGrid"><span>Bagara Rice</span></button>
+                <button type="button" class="filter-btn" data-filter="combos" role="tab" aria-selected="false" tabindex="-1" aria-controls="menuGrid"><span>Combos</span></button>
+                <button type="button" class="filter-btn" data-filter="snacks" role="tab" aria-selected="false" tabindex="-1" aria-controls="menuGrid"><span>Snacks</span></button>
+                <button type="button" class="filter-btn" data-filter="drinks" role="tab" aria-selected="false" tabindex="-1" aria-controls="menuGrid"><span>Drinks</span></button>
+            </div>
+
+            <div class="menu-grid" id="menuGrid"></div>
+
+            <div class="menu-search-wrap">
+                <input type="search" id="menuSearch" class="menu-search-input" placeholder="Search menu items..." aria-label="Search menu items">
+            </div>
+            <p id="menuSearchEmpty" class="menu-search-empty">No matching items found.</p>
+
+            <div class="full-list-toggle-wrap">
+                <button type="button" class="full-list-toggle-btn" id="fullListToggleBtn" aria-expanded="false" aria-controls="fullMenuList">
+                    View Full Price List
+                </button>
+            </div>
+
+            <div class="full-menu-list is-collapsed" id="fullMenuList" hidden>
+                <h3 class="full-menu-title">All Items & Prices</h3>
+
+                <details class="menu-group" open>
+                    <summary>Soups</summary>
+                    <div class="menu-subgroup">
+                        <h4>Veg (&#8377;99 each)</h4>
+                        <ul>
+                            <li><span>Veg Sweet Corn Soup</span><span>&#8377;99</span></li>
+                            <li><span>Veg Hot &amp; Sour Soup</span><span>&#8377;99</span></li>
+                            <li><span>Lemon Coriander Soup</span><span>&#8377;99</span></li>
+                            <li><span>Veg Clear Soup</span><span>&#8377;99</span></li>
+                            <li><span>Veg Manchow Soup</span><span>&#8377;99</span></li>
+                            <li><span>Veg Mushroom Soup</span><span>&#8377;99</span></li>
+                            <li><span>Cream of Tomato Soup</span><span>&#8377;99</span></li>
+                        </ul>
+                    </div>
+                    <div class="menu-subgroup">
+                        <h4>Non-Veg (&#8377;119 each)</h4>
+                        <ul>
+                            <li><span>Chicken Hot &amp; Sour Soup</span><span>&#8377;119</span></li>
+                            <li><span>Chicken Manchow Soup</span><span>&#8377;119</span></li>
+                            <li><span>Chicken Clear Soup</span><span>&#8377;119</span></li>
+                            <li><span>Chicken Corn Soup</span><span>&#8377;119</span></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="menu-group">
+                    <summary>Chinese (Fried Rice)</summary>
+                    <div class="menu-subgroup">
+                        <h4>Veg</h4>
+                        <ul>
+                            <li><span>Veg Fried Rice</span><span>&#8377;79</span></li>
+                            <li><span>Jeera Rice</span><span>&#8377;89</span></li>
+                            <li><span>Veg Schezwan Fried Rice</span><span>&#8377;99</span></li>
+                            <li><span>Veg Manchurian Fried Rice</span><span>&#8377;99</span></li>
+                            <li><span>Kaaju Fried Rice</span><span>&#8377;119</span></li>
+                            <li><span>Paneer Fried Rice</span><span>&#8377;119</span></li>
+                            <li><span>Mushroom Fried Rice</span><span>&#8377;119</span></li>
+                            <li><span>Babycorn Fried Rice</span><span>&#8377;119</span></li>
+                            <li><span>Mixed Veg Fried Rice</span><span>&#8377;139</span></li>
+                        </ul>
+                    </div>
+                    <div class="menu-subgroup">
+                        <h4>Non-Veg</h4>
+                        <ul>
+                            <li><span>Egg Fried Rice</span><span>&#8377;89</span></li>
+                            <li><span>Chicken Fried Rice</span><span>&#8377;99</span></li>
+                            <li><span>Schezwan Chicken Fried Rice</span><span>&#8377;119</span></li>
+                            <li><span>Mixed Non-Veg Fried Rice</span><span>&#8377;149</span></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="menu-group">
+                    <summary>Noodles</summary>
+                    <div class="menu-subgroup">
+                        <h4>Veg</h4>
+                        <ul>
+                            <li><span>Veg Noodles</span><span>&#8377;89</span></li>
+                            <li><span>Veg Manchurian Noodles</span><span>&#8377;99</span></li>
+                            <li><span>Veg Schezwan Noodles</span><span>&#8377;99</span></li>
+                            <li><span>Mushroom Noodles</span><span>&#8377;99</span></li>
+                            <li><span>Paneer Noodles</span><span>&#8377;99</span></li>
+                        </ul>
+                    </div>
+                    <div class="menu-subgroup">
+                        <h4>Non-Veg</h4>
+                        <ul>
+                            <li><span>Egg Noodles</span><span>&#8377;89</span></li>
+                            <li><span>Egg Schezwan Noodles</span><span>&#8377;99</span></li>
+                            <li><span>Chicken Noodles</span><span>&#8377;109</span></li>
+                            <li><span>Chicken Schezwan Noodles</span><span>&#8377;119</span></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="menu-group">
+                    <summary>Seafood</summary>
+                    <div class="menu-subgroup">
+                        <h4>Fish (&#8377;249 each)</h4>
+                        <ul>
+                            <li><span>Apollo Fish</span><span>&#8377;249</span></li>
+                            <li><span>Schezwan Fish</span><span>&#8377;249</span></li>
+                            <li><span>Ginger Fish</span><span>&#8377;249</span></li>
+                            <li><span>Thai Fish</span><span>&#8377;249</span></li>
+                            <li><span>Fish Finger</span><span>&#8377;249</span></li>
+                        </ul>
+                    </div>
+                    <div class="menu-subgroup">
+                        <h4>Prawns (&#8377;289 each)</h4>
+                        <ul>
+                            <li><span>Chilli Prawns</span><span>&#8377;289</span></li>
+                            <li><span>Loose Prawns</span><span>&#8377;289</span></li>
+                            <li><span>Prawns Salt &amp; Pepper</span><span>&#8377;289</span></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="menu-group">
+                    <summary>Biryanis</summary>
+                    <div class="menu-subgroup">
+                        <h4>Veg</h4>
+                        <ul>
+                            <li><span>Veg Biryani</span><span>&#8377;129 / &#8377;239</span></li>
+                            <li><span>Paneer Biryani</span><span>&#8377;169 / &#8377;299</span></li>
+                            <li><span>Kaju Biryani</span><span>&#8377;199 / &#8377;299</span></li>
+                            <li><span>Mushroom Biryani</span><span>&#8377;199 / &#8377;319</span></li>
+                            <li><span>Mixed Veg Biryani</span><span>&#8377;219 / &#8377;319</span></li>
+                        </ul>
+                    </div>
+                    <div class="menu-subgroup">
+                        <h4>Non-Veg</h4>
+                        <ul>
+                            <li><span>Egg Biryani</span><span>&#8377;129</span></li>
+                            <li><span>Chicken Dum Biryani</span><span>&#8377;139</span></li>
+                            <li><span>Special Chicken Biryani</span><span>&#8377;179</span></li>
+                            <li><span>Chicken Fry Piece Biryani</span><span>&#8377;179</span></li>
+                            <li><span>Chicken 65 Biryani</span><span>&#8377;179</span></li>
+                            <li><span>Gongura Chicken Biryani</span><span>&#8377;179</span></li>
+                            <li><span>Chicken Lollipop Biryani</span><span>&#8377;179</span></li>
+                            <li><span>Mughlai Chicken Biryani</span><span>&#8377;179</span></li>
+                            <li><span>Mutton Dum Biryani</span><span>&#8377;209</span></li>
+                            <li><span>Special Mutton Biryani</span><span>&#8377;249</span></li>
+                            <li><span>Mutton Fry Piece Biryani</span><span>&#8377;249</span></li>
+                            <li><span>Gongura Mutton Biryani</span><span>&#8377;249</span></li>
+                            <li><span>Mutton Keema Biryani</span><span>&#8377;249</span></li>
+                            <li><span>Prawns Biryani</span><span>&#8377;249</span></li>
+                            <li><span>Fish Biryani</span><span>&#8377;249</span></li>
+                            <li><span>Hyderabadi Special Mixed Non-Veg Biryani</span><span>&#8377;299</span></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="menu-group">
+                    <summary>Rotis</summary>
+                    <ul>
+                        <li><span>Chapathi</span><span>&#8377;20</span></li>
+                        <li><span>Rumali Roti</span><span>&#8377;30</span></li>
+                        <li><span>Butter Roti</span><span>&#8377;40</span></li>
+                        <li><span>Butter Naan</span><span>&#8377;40</span></li>
+                        <li><span>Garlic Naan</span><span>&#8377;50</span></li>
+                        <li><span>Cheese Naan</span><span>&#8377;60</span></li>
+                    </ul>
+                </details>
+
+                <details class="menu-group">
+                    <summary>Bagara Rice</summary>
+                    <ul>
+                        <li><span>Bagara Rice + Chicken Curry + Dalcha</span><span>&#8377;159</span></li>
+                        <li><span>Bagara Rice + Mutton Curry + Dalcha</span><span>&#8377;209</span></li>
+                        <li><span>Chicken Fry Piece Bagara</span><span>&#8377;299</span></li>
+                        <li><span>Special Chicken Bagara</span><span>&#8377;299</span></li>
+                    </ul>
+                </details>
+
+                <details class="menu-group">
+                    <summary>Combo Packs</summary>
+                    <div class="combo-wrap">
+                        <table class="combo-table">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Family</th>
+                                    <th>Jumbo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Veg Biryani</td>
+                                    <td>&#8377;499</td>
+                                    <td>&#8377;649</td>
+                                </tr>
+                                <tr>
+                                    <td>Chicken Biryani</td>
+                                    <td>&#8377;549</td>
+                                    <td>&#8377;749</td>
+                                </tr>
+                                <tr>
+                                    <td>Mutton Biryani</td>
+                                    <td>&#8377;749</td>
+                                    <td>&#8377;949</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <details class="menu-group">
+                    <summary>Snacks &amp; Fast Food</summary>
+                    <div class="menu-subgroup">
+                        <h4>French Fries</h4>
+                        <ul>
+                            <li><span>Plain</span><span>&#8377;89</span></li>
+                            <li><span>Salt</span><span>&#8377;99</span></li>
+                            <li><span>Masala (Peri Peri)</span><span>&#8377;109</span></li>
+                        </ul>
+                    </div>
+                    <div class="menu-subgroup">
+                        <h4>Maggi</h4>
+                        <ul>
+                            <li><span>Veg Maggi</span><span>&#8377;59</span></li>
+                            <li><span>Chicken Maggi</span><span>&#8377;69</span></li>
+                        </ul>
+                    </div>
+                    <div class="menu-subgroup">
+                        <h4>Burgers</h4>
+                        <ul>
+                            <li><span>Veg Burger</span><span>&#8377;59</span></li>
+                            <li><span>Chicken Burger</span><span>&#8377;69</span></li>
+                        </ul>
+                    </div>
+                    <div class="menu-subgroup">
+                        <h4>Momos</h4>
+                        <ul>
+                            <li><span>Veg Momos</span><span>&#8377;79</span></li>
+                            <li><span>Paneer Momos</span><span>&#8377;89</span></li>
+                            <li><span>Chicken Momos</span><span>&#8377;99</span></li>
+                            <li><span>Chicken Peri Peri Momos</span><span>&#8377;99</span></li>
+                            <li><span>Paneer Cheese Momos</span><span>&#8377;99</span></li>
+                        </ul>
+                    </div>
+                    <div class="menu-subgroup">
+                        <h4>Sandwiches</h4>
+                        <ul>
+                            <li><span>Veg Plain Sandwich</span><span>&#8377;69</span></li>
+                            <li><span>Veg Grilled Sandwich</span><span>&#8377;79</span></li>
+                            <li><span>Veg Cheese Sandwich</span><span>&#8377;89</span></li>
+                            <li><span>Omelet Sandwich</span><span>&#8377;99</span></li>
+                        </ul>
+                    </div>
+                    <div class="menu-subgroup">
+                        <h4>Other Snacks</h4>
+                        <ul>
+                            <li><span>Veg Nuggets</span><span>&#8377;79</span></li>
+                            <li><span>Onion Rings</span><span>&#8377;89</span></li>
+                            <li><span>Potato Wedges</span><span>&#8377;89</span></li>
+                            <li><span>Aloo Tikki</span><span>&#8377;79</span></li>
+                            <li><span>Bread Omelet</span><span>&#8377;79</span></li>
+                            <li><span>Fluffer Omelet</span><span>&#8377;79</span></li>
+                            <li><span>Potato Tornado</span><span>&#8377;79</span></li>
+                            <li><span>Veg Spring Roll (6 pcs)</span><span>&#8377;99</span></li>
+                            <li><span>Chicken Nuggets</span><span>&#8377;99</span></li>
+                            <li><span>Chicken Crispy Popcorn (10 pcs)</span><span>&#8377;89</span></li>
+                            <li><span>Crispy Chicken Fries</span><span>&#8377;99</span></li>
+                            <li><span>Chicken Chilli Garlic</span><span>&#8377;99</span></li>
+                            <li><span>Fried Chicken</span><span>&#8377;99</span></li>
+                            <li><span>Chicken Wings (3 pcs)</span><span>&#8377;99</span></li>
+                            <li><span>Chicken Breast Strip (3 pcs)</span><span>&#8377;99</span></li>
+                            <li><span>Chicken Spring Roll</span><span>&#8377;79</span></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="menu-group">
+                    <summary>Drinks</summary>
+                    <div class="menu-subgroup">
+                        <h4>Mocktails (&#8377;89 each)</h4>
+                        <ul>
+                            <li><span>Blue Mojito</span><span>&#8377;89</span></li>
+                            <li><span>Rose</span><span>&#8377;89</span></li>
+                            <li><span>Mint Lemon</span><span>&#8377;89</span></li>
+                            <li><span>Orange</span><span>&#8377;89</span></li>
+                            <li><span>Strawberry</span><span>&#8377;89</span></li>
+                            <li><span>Pineapple Mojito</span><span>&#8377;89</span></li>
+                            <li><span>Green Apple Mojito</span><span>&#8377;89</span></li>
+                        </ul>
+                    </div>
+                    <div class="menu-subgroup">
+                        <h4>Milkshakes (&#8377;99 each)</h4>
+                        <ul>
+                            <li><span>Oreo</span><span>&#8377;99</span></li>
+                            <li><span>Chocolate</span><span>&#8377;99</span></li>
+                            <li><span>Strawberry</span><span>&#8377;99</span></li>
+                            <li><span>Rose</span><span>&#8377;99</span></li>
+                            <li><span>Vanilla</span><span>&#8377;99</span></li>
+                            <li><span>Luche</span><span>&#8377;99</span></li>
+                            <li><span>Green Apple</span><span>&#8377;99</span></li>
+                            <li><span>Kiwi</span><span>&#8377;99</span></li>
+                            <li><span>Banana</span><span>&#8377;99</span></li>
+                            <li><span>Black Current</span><span>&#8377;99</span></li>
+                            <li><span>Cold Coffee</span><span>&#8377;99</span></li>
+                            <li><span>Orange</span><span>&#8377;99</span></li>
+                        </ul>
+                    </div>
+                    <div class="menu-subgroup">
+                        <h4>Thick Shakes (&#8377;129 each)</h4>
+                        <ul>
+                            <li><span>Oreo</span><span>&#8377;129</span></li>
+                            <li><span>Chocolate</span><span>&#8377;129</span></li>
+                            <li><span>Strawberry</span><span>&#8377;129</span></li>
+                            <li><span>Green Apple</span><span>&#8377;129</span></li>
+                            <li><span>Black Current</span><span>&#8377;129</span></li>
+                            <li><span>Kitkat</span><span>&#8377;129</span></li>
+                            <li><span>Custard Apple</span><span>&#8377;129</span></li>
+                        </ul>
+                    </div>
+                    <div class="menu-subgroup">
+                        <h4>Lassi</h4>
+                        <ul>
+                            <li><span>Plain Lassi</span><span>&#8377;79</span></li>
+                            <li><span>Mango Lassi</span><span>&#8377;79</span></li>
+                            <li><span>Sweet Lassi</span><span>&#8377;79</span></li>
+                            <li><span>Pineapple Lassi</span><span>&#8377;79</span></li>
+                            <li><span>Banana Lassi</span><span>&#8377;79</span></li>
+                            <li><span>Masala Lassi</span><span>&#8377;79</span></li>
+                            <li><span>Kaju Lassi</span><span>&#8377;99</span></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>Customer Reviews</h2>
+                <div class="divider"></div>
+                <p>What our customers say about us</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">SK</div>
+                            <div>
+                                <h4>Sreekanth Guguloth</h4>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="review-time">4 months ago</span>
+                    </div>
+                    <p class="review-text">Hyderabad Irani Food Court serves tasty dishes, especially their chai and snacks. The service is quick and the ambience is decent.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">FF</div>
+                            <div>
+                                <h4>Firoz FZ</h4>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="review-time">8 months ago</span>
+                    </div>
+                    <p class="review-text">On off my fav restaurant, I like the Malai Chai and Bun available here, I really like spending time here with my wife.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">SS</div>
+                            <div>
+                                <h4>Siva Srinivas Kolukula</h4>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="review-time">7 months ago</span>
+                    </div>
+                    <p class="review-text">I stopped by for a samosa and Irani chai. The tea was enjoyable. The venue is spacious with a high, tin-sheet roof.</p>
+                </div>
+            </div>
+            <div class="overall-rating">
+                <div class="rating-score">
+                    <h3>4.0</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p>161 Reviews</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Visit Us</h2>
+                <div class="divider"></div>
+                <p>We'd love to serve you</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Location</h3>
+                        <p>Plot no 38, Ayyappa Nagar Colony<br>Ghatkesar Road, 23-67, Rampally Main Rd<br>Rampally, Hyderabad<br>Secunderabad, Telangana 501302</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-phone"></i>
+                        <h3>Phone</h3>
+                        <p><a href="tel:08985673240">089856 73240</a></p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Hours</h3>
+                        <p>Open Daily<br>Closes at 11:30 PM</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-concierge-bell"></i>
+                        <h3>Services</h3>
+                        <p>Dine-in<br>Order Online<br>Family Garden Area</p>
+                    </div>
+                </div>
+                <div class="contact-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.8745542889793!2d78.55053531487485!3d17.476589688040865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI4JzM1LjciTiA3OMKwMzMnMTEuMCJF!5e0!3m2!1sen!2sin!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div class="contact-form-wrap" aria-label="Contact form">
+                <h3 class="contact-form-title">Message Us</h3>
+                <p class="contact-form-subtitle">Send a quick message on WhatsApp (opens in a new tab).</p>
+                <form id="contactForm" class="contact-form" autocomplete="on">
+                    <div class="contact-form-grid">
+                        <label class="contact-field">
+                            <span>Name</span>
+                            <input type="text" id="contactName" name="name" placeholder="Your name" required>
+                        </label>
+                        <label class="contact-field">
+                            <span>Phone</span>
+                            <input type="tel" id="contactPhone" name="phone" placeholder="Your phone number" inputmode="tel" required>
+                        </label>
+                    </div>
+                    <label class="contact-field">
+                        <span>Message</span>
+                        <textarea id="contactMessage" name="message" rows="4" placeholder="What would you like to order or ask?" required></textarea>
+                    </label>
+                    <div class="contact-form-actions">
+                        <button type="submit" class="btn btn-primary">Send on WhatsApp</button>
+                        <a class="btn btn-secondary" href="tel:08985673240">Call Now</a>
+                    </div>
+                    <p id="contactFormStatus" class="contact-form-status" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Hyderabadi Irani Food Court</h3>
+                    <p>Authentic Irani chai and Hyderabadi cuisine in a family-friendly atmosphere.</p>
+                    <div class="social-links">
+                        <button type="button" class="social-btn" data-social="facebook" aria-label="Facebook link coming soon"><i class="fab fa-facebook" aria-hidden="true"></i></button>
+                        <button type="button" class="social-btn" data-social="instagram" aria-label="Instagram link coming soon"><i class="fab fa-instagram" aria-hidden="true"></i></button>
+                        <button type="button" class="social-btn" data-social="twitter" aria-label="Twitter link coming soon"><i class="fab fa-twitter" aria-hidden="true"></i></button>
+                        <button type="button" class="social-btn" data-social="youtube" aria-label="YouTube link coming soon"><i class="fab fa-youtube" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 089856 73240</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Rampally, Hyderabad</li>
+                        <li><i class="fas fa-clock"></i> Open till 11:30 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year">2026</span> Hyderabadi Irani Food Court. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTop" class="scroll-top" type="button" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
